@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+  </head>
+  <body leftmargin="30" rightmargin="30">
+    <header>
+      <a id="#"></a>
+      <nav>
+        <ul type="none">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="#">Каталог</a></li>
+        </ul>
+      </nav>
+    </header>
+    <form action="построить_график" method="post" id="graph-form">
+      <details>
+        <summary>График</summary>
+        <div>
+          <b>Значение по оси OX:</b>
+          <br>
+          <input type="radio" name="ox_filter" value="genre_1" id="ox_genre">
+          <label for="ox_genre">Жанр</label>
+          <br>
+          <input
+            type="radio"
+            name="ox_filter"
+            value="country_1"
+            id="ox_country"
+          >
+          <label for="ox_country">Страна</label>
+          <br>
+          <input type="radio" name="ox_filter" value="year_1" id="ox_year">
+          <label for="ox_year">Год</label>
+        </div>
+
+        <div>
+          <b>Результат:</b>
+          <br>
+          <input type="checkbox" name="result" value="1" id="result_min">
+          <label for="result_min">Минимальная продолжительность</label>
+          <br>
+          <input type="checkbox" name="result" value="2" id="result_max">
+          <label for="result_max">Максимальная продолжительность</label>
+          <br>
+          <input type="checkbox" name="result" value="3" id="result_count">
+          <label for="result_count">Количество фильмов</label>
+        </div>
+        <input type="submit" value="Построить график" >
+      </details>
+    </form>
+    <p>Здесь будет график</p>
+    <form action="фильтр" id="filter-form">
+      <details>
+        <summary>Фильтр</summary>
+
+        <p>
+          <label for="name_input">Название:</label>
+          <input type="text" name="name_2" id="name_input">
+        </p>
+        <p>
+          <label for="genre_input">Жанр:</label>
+          <input type="text" name="genre_2" id="genre_input">
+        </p>
+        <p>
+          <label for="country_input">Страна:</label>
+          <input type="text" name="country_2" id="country_input">
+        </p>
+        <p>
+          <label for="year_min_input">Год: от</label>
+          <input
+            type="number"
+            name="year_min_2"
+            min="1888"
+            id="year_min_input"
+          >
+          до
+          <input
+            type="number"
+            name="year_max_2"
+            max="2025"
+            id="year_max_input"
+          >
+        </p>
+        <p>
+          <label for="duration_min_input">Продолжительность (мин): от</label>
+          <input
+            type="number"
+            name="duration_min_2"
+            min="1"
+            id="duration_min_input">
+          до
+          <input type="number" name="duration_max_2" id="duration_max_input">
+        </p>
+        <input type="submit" value="Найти">
+      </details>
+    </form>
+    <form action="сортировка" id="sort-form">
+      <details>
+        <summary>Сортировка</summary>
+
+        <p>
+          <label for="first_filter">Первый уровень:</label>
+          <select name="first_filter" id="first_filter">
+            <option value="0">Нет</option>
+            <option value="1">Название</option>
+            <option value="2">Год</option>
+            <option value="3">Продолжительность</option>
+            <option value="4">Страна</option>
+            <option value="5">Жанр</option>
+          </select>
+          <input
+            type="checkbox"
+            name="first_filter_down"
+            value="1"
+            id="first_filter_down"
+          >
+          <label for="first_filter_down">по убыванию?</label>
+        </p>
+        <p>
+          <label for="second_filter">Второй уровень:</label>
+          <select name="second_filter" id="second_filter">
+            <option value="0">Нет</option>
+            <option value="1">Название</option>
+            <option value="2">Год</option>
+            <option value="3">Продолжительность</option>
+            <option value="4">Страна</option>
+            <option value="5">Жанр</option>
+          </select>
+          <input
+            type="checkbox"
+            name="second_filter_down"
+            value="1"
+            id="second_filter_down"
+          >
+          <label for="second_filter_down">по убыванию?</label>
+        </p>
+        <p>
+          <label for="third_filter">Третий уровень:</label>
+          <select name="third_filter" id="third_filter">
+            <option value="0">Нет</option>
+            <option value="1">Название</option>
+            <option value="2">Год</option>
+            <option value="3">Продолжительность</option>
+            <option value="4">Страна</option>
+            <option value="5">Жанр</option>
+          </select>
+          <input
+            type="checkbox"
+            name="third_filter_down"
+            value="1"
+            id="third_filter_down"
+          >
+          <label for="third_filter_down">по убыванию?</label>
+        </p>
+
+        <input type="submit" value="Сортировать" >
+      </details>
+    </form>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Жанр</th>
+          <th>Страна</th>
+          <th>Год</th>
+          <th>Продолжительность (мин)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Побег из Шоушенка</td>
+          <td>Драма</td>
+          <td>США</td>
+          <td>1994</td>
+          <td>142</td>
+        </tr>
+        <tr>
+          <td>Король Лев</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>1994</td>
+          <td>88</td>
+        </tr>
+        <tr>
+          <td>Начало</td>
+          <td>Фантастика</td>
+          <td>США</td>
+          <td>2010</td>
+          <td>148</td>
+        </tr>
+        <tr>
+          <td>Унесённые призраками</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2001</td>
+          <td>125</td>
+        </tr>
+        <tr>
+          <td>Форрест Гамп</td>
+          <td>Драма</td>
+          <td>США</td>
+          <td>1994</td>
+          <td>142</td>
+        </tr>
+        <tr>
+          <td>Тайна Коко</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2017</td>
+          <td>105</td>
+        </tr>
+        <tr>
+          <td>Темный рыцарь</td>
+          <td>Боевик</td>
+          <td>США</td>
+          <td>2008</td>
+          <td>152</td>
+        </tr>
+        <tr>
+          <td>Твоё имя</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2016</td>
+          <td>106</td>
+        </tr>
+        <tr>
+          <td>Криминальное чтиво</td>
+          <td>Криминал</td>
+          <td>США</td>
+          <td>1994</td>
+          <td>154</td>
+        </tr>
+        <tr>
+          <td>Ходячий замок</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2004</td>
+          <td>119</td>
+        </tr>
+        <tr>
+          <td>Интерстеллар</td>
+          <td>Фантастика</td>
+          <td>США</td>
+          <td>2014</td>
+          <td>169</td>
+        </tr>
+        <tr>
+          <td>Зверополис</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2016</td>
+          <td>108</td>
+        </tr>
+        <tr>
+          <td>Паразиты</td>
+          <td>Триллер</td>
+          <td>Южная Корея</td>
+          <td>2019</td>
+          <td>132</td>
+        </tr>
+        <tr>
+          <td>Призрак в доспехах</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>1995</td>
+          <td>82</td>
+        </tr>
+        <tr>
+          <td>Список Шиндлера</td>
+          <td>Драма</td>
+          <td>США</td>
+          <td>1993</td>
+          <td>195</td>
+        </tr>
+        <tr>
+          <td>Холодное сердце</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2013</td>
+          <td>102</td>
+        </tr>
+        <tr>
+          <td>Леон</td>
+          <td>Боевик</td>
+          <td>Франция</td>
+          <td>1994</td>
+          <td>110</td>
+        </tr>
+        <tr>
+          <td>Акира</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>1988</td>
+          <td>124</td>
+        </tr>
+        <tr>
+          <td>Крестный отец</td>
+          <td>Криминал</td>
+          <td>США</td>
+          <td>1972</td>
+          <td>175</td>
+        </tr>
+        <tr>
+          <td>Моана</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2016</td>
+          <td>107</td>
+        </tr>
+        <tr>
+          <td>Назад в будущее</td>
+          <td>Фантастика</td>
+          <td>США</td>
+          <td>1985</td>
+          <td>116</td>
+        </tr>
+        <tr>
+          <td>Ветер крепчает</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2013</td>
+          <td>126</td>
+        </tr>
+        <tr>
+          <td>Бойцовский клуб</td>
+          <td>Драма</td>
+          <td>США</td>
+          <td>1999</td>
+          <td>139</td>
+        </tr>
+        <tr>
+          <td>Ральф</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2012</td>
+          <td>101</td>
+        </tr>
+        <tr>
+          <td>Матрица</td>
+          <td>Фантастика</td>
+          <td>США</td>
+          <td>1999</td>
+          <td>136</td>
+        </tr>
+        <tr>
+          <td>Паприка</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2006</td>
+          <td>90</td>
+        </tr>
+        <tr>
+          <td>Зеленая миля</td>
+          <td>Драма</td>
+          <td>США</td>
+          <td>1999</td>
+          <td>189</td>
+        </tr>
+        <tr>
+          <td>Головоломка</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2015</td>
+          <td>95</td>
+        </tr>
+        <tr>
+          <td>Пианист</td>
+          <td>Драма</td>
+          <td>Франция</td>
+          <td>2002</td>
+          <td>150</td>
+        </tr>
+        <tr>
+          <td>Могила светлячков</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>1988</td>
+          <td>89</td>
+        </tr>
+        <tr>
+          <td>1+1</td>
+          <td>Комедия</td>
+          <td>Франция</td>
+          <td>2011</td>
+          <td>112</td>
+        </tr>
+        <tr>
+          <td>Рататуй</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2007</td>
+          <td>111</td>
+        </tr>
+        <tr>
+          <td>Пролетая над гнездом кукушки</td>
+          <td>Драма</td>
+          <td>США</td>
+          <td>1975</td>
+          <td>133</td>
+        </tr>
+        <tr>
+          <td>Великий из бродяг</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2007</td>
+          <td>110</td>
+        </tr>
+        <tr>
+          <td>Амели</td>
+          <td>Романтика</td>
+          <td>Франция</td>
+          <td>2001</td>
+          <td>122</td>
+        </tr>
+        <tr>
+          <td>Меч в камне</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>1963</td>
+          <td>79</td>
+        </tr>
+        <tr>
+          <td>Джанго освобожденный</td>
+          <td>Вестерн</td>
+          <td>США</td>
+          <td>2012</td>
+          <td>165</td>
+        </tr>
+        <tr>
+          <td>Девочка, покорившая время</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2006</td>
+          <td>98</td>
+        </tr>
+        <tr>
+          <td>Ла-Ла Ленд</td>
+          <td>Мюзикл</td>
+          <td>США</td>
+          <td>2016</td>
+          <td>128</td>
+        </tr>
+        <tr>
+          <td>Красавица и Чудовище</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>1991</td>
+          <td>84</td>
+        </tr>
+        <tr>
+          <td>Джокер</td>
+          <td>Триллер</td>
+          <td>США</td>
+          <td>2019</td>
+          <td>122</td>
+        </tr>
+        <tr>
+          <td>Сказание о принцессе Кагуя</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2013</td>
+          <td>137</td>
+        </tr>
+        <tr>
+          <td>Достучаться до небес</td>
+          <td>Драма</td>
+          <td>Германия</td>
+          <td>1997</td>
+          <td>87</td>
+        </tr>
+        <tr>
+          <td>Суперсемейка</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2004</td>
+          <td>115</td>
+        </tr>
+        <tr>
+          <td>Игры разума</td>
+          <td>Драма</td>
+          <td>США</td>
+          <td>2001</td>
+          <td>135</td>
+        </tr>
+        <tr>
+          <td>Рыбка Поньо</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>2008</td>
+          <td>101</td>
+        </tr>
+        <tr>
+          <td>Стальной гигант</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>1999</td>
+          <td>86</td>
+        </tr>
+        <tr>
+          <td>Изгоняющий дьявола</td>
+          <td>Ужасы</td>
+          <td>США</td>
+          <td>1973</td>
+          <td>122</td>
+        </tr>
+        <tr>
+          <td>Небесный замок Лапута</td>
+          <td>Аниме</td>
+          <td>Япония</td>
+          <td>1986</td>
+          <td>124</td>
+        </tr>
+        <tr>
+          <td>ВАЛЛ-И</td>
+          <td>Мультфильм</td>
+          <td>США</td>
+          <td>2008</td>
+          <td>98</td>
+        </tr>
+      </tbody>
+    </table>
+    <footer>
+      <ul type="none">
+        <li>Автор - Федосейкин Никита Б9123-09.03.04</li>
+
+        <li>
+          Все материалы взяты из открытых источников. Права на заимствованные
+          материалы принадлежат их владельцам.
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

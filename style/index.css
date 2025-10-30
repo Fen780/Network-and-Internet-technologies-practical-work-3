@@ -1,0 +1,372 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: double thick lightgray;
+    border-bottom: double thick lightgray;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+}
+
+.logo img {
+    max-height: 40px;
+}
+
+.logo span {
+    font-weight: bold;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header .nav-link {
+    text-decoration: none;
+    color: black;
+    padding: 11px;
+}
+
+header .current-page {
+    border-left: double thick lightgray;
+    border-right: double thick lightgray;
+    color: green;
+    font-weight: bold;
+}
+
+/*---- */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    min-height: 700px;
+    margin: 0;
+    padding: 0;
+}
+
+/*---- */
+.img-galery {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 5px;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.img-galery a {
+    width: 20%;
+    margin: 0 1px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.img-galery img {
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+.img-galery a:nth-child(2) {
+    align-self: flex-start;
+}
+
+.img-galery a:nth-child(4) {
+    align-self: center;
+}
+
+/* центральный блок */
+
+.central {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.central .big-paragraph {
+    box-sizing: border-box;
+    border: thin solid black;
+    padding: 10px;
+    margin: 0;
+    margin-bottom: 10px;
+    height: 175px;
+    overflow: hidden;
+}
+
+.big-paragraph p {
+    max-height: 50%;
+    overflow: hidden;
+}
+
+.central .middle-bottom-line {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    align-items: stretch;
+}
+
+.middle-bottom-box {
+    box-sizing: border-box;
+    border: thin solid lightblue;
+    border-radius: 20px;
+    padding: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.middle-bottom-box p {
+    overflow: hidden;
+}
+
+.middle-bottom-box span {
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+.middle-bottom-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* левый блок */
+.left {
+    display: flex;
+    flex-direction: column;
+    border-right: thin solid black;
+    /*height: 700px;*/
+    overflow: hidden;
+    padding-right: 3px;
+    margin-bottom: 5px;
+}
+
+.left-box,
+.left-box-bottom {
+    flex-grow: 1;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+}
+
+.left-box {
+    height: 40%;
+    margin-bottom: 5px;
+}
+
+.left-box-bottom {
+    height: 60%;
+}
+
+.left-box .information,
+.left-box-bottom .information {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 75%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.left-box .information h3,
+.left-box-bottom .information h3 {
+    font-size: 12pt;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.left-box .information p,
+.left-box-bottom .information p {
+    overflow: hidden;
+    font-size: 12pt;
+    margin: 0;
+    height: 100%;
+    white-space: normal;
+    margin-bottom: 0;
+    margin-bottom: 5px;
+}
+
+.left-box img,
+.left-box-bottom img {
+    width: 25%;
+    height: 100%;
+}
+
+/* правый блок */
+.right {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-left: thin solid black;
+    /*height: 700px;*/
+    overflow: hidden;
+    margin-left: 3px;
+    padding-left: 3px;
+}
+
+.right-box,
+.right-box-bottom {
+    flex-grow: 1;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+}
+
+.right-box {
+    height: 60%;
+    margin-bottom: 5px;
+}
+
+.right-box-bottom {
+    height: 40%;
+}
+
+.right-box .information,
+.right-box-bottom .information {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 75%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.right-box .information h3,
+.right-box-bottom .information h3 {
+    font-size: 12pt;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.right-box .information p,
+.right-box-bottom .information p {
+    overflow: hidden;
+    font-size: 12pt;
+    margin: 0;
+    height: 100%;
+    white-space: normal;
+    margin-bottom: 5px;
+}
+
+.right-box img,
+.right-box-bottom img {
+    width: 25%;
+    height: 100%;
+}
+
+/* общие компоненты */
+.more {
+    color: rgb(175, 79, 10);
+    text-decoration: underline;
+    float: right;
+}
+
+.more-btn {
+    display: inline-block;
+    border: solid thin black;
+    border-radius: 5px;
+    color: white;
+    background: rgb(0, 98, 255);
+}
+
+.more-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+/* --- */
+.body-content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+/*Медиа-запросы*/
+@media (max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+        border: none;
+        border-bottom: double thick lightgray;
+    }
+
+    header nav {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    header .current-page {
+        border: solid 2px green;
+    }
+
+    .img-galery {
+        flex-wrap: wrap;
+    }
+
+    .img-galery a {
+        width: 100%;
+        margin: 5px;
+        align-self: auto;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .left,
+    .right {
+        height: auto;
+        border-right: none;
+        border-left: none;
+        padding-right: 0;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .left-box,
+    .left-box-bottom,
+    .right-box,
+    .right-box-bottom {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-box img,
+    .left-box-bottom img,
+    .right-box img,
+    .right-box-bottom img {
+        width: 100%;
+        margin-bottom: 10px;
+        order: -1;
+        max-height: 200px;
+    }
+
+    .left-box .information,
+    .left-box-bottom .information,
+    .right-box .information,
+    .right-box-bottom .information {
+        width: 100%;
+        overflow: auto;
+        padding: 5px 0;
+    }
+
+    .central .middle-bottom-line {
+        grid-template-columns: 1fr;
+    }
+
+}
