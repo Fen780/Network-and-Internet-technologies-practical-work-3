@@ -1,7 +1,6 @@
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     border-top: double thick lightgray;
     border-bottom: double thick lightgray;
 }
@@ -45,7 +44,6 @@ header .current-page {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 10px;
-    min-height: 700px;
     margin: 0;
     padding: 0;
 }
@@ -77,7 +75,7 @@ header .current-page {
 }
 
 .img-galery a:nth-child(4) {
-    align-self: center;
+    align-self: flex-start;
 }
 
 /* центральный блок */
@@ -85,7 +83,6 @@ header .current-page {
 .central {
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
     font-size: 16px;
 }
 
@@ -109,7 +106,7 @@ header .current-page {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    align-items: stretch;
+    max-height: 500px;
 }
 
 .middle-bottom-box {
@@ -120,7 +117,7 @@ header .current-page {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .middle-bottom-box p {
@@ -147,12 +144,12 @@ header .current-page {
     overflow: hidden;
     padding-right: 3px;
     margin-bottom: 5px;
+    max-height: 700px;
 }
 
 .left-box,
 .left-box-bottom {
     flex-grow: 1;
-    box-sizing: border-box;
     display: flex;
     align-items: flex-start;
 }
@@ -170,7 +167,6 @@ header .current-page {
 .left-box-bottom .information {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     width: 75%;
     height: 100%;
     box-sizing: border-box;
@@ -191,7 +187,6 @@ header .current-page {
     font-size: 12pt;
     margin: 0;
     height: 100%;
-    white-space: normal;
     margin-bottom: 0;
     margin-bottom: 5px;
 }
@@ -212,6 +207,7 @@ header .current-page {
     overflow: hidden;
     margin-left: 3px;
     padding-left: 3px;
+    max-height: 700px;
 }
 
 .right-box,
@@ -219,7 +215,6 @@ header .current-page {
     flex-grow: 1;
     box-sizing: border-box;
     display: flex;
-    align-items: flex-start;
 }
 
 .right-box {
@@ -235,7 +230,6 @@ header .current-page {
 .right-box-bottom .information {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     width: 75%;
     height: 100%;
     box-sizing: border-box;
@@ -256,7 +250,6 @@ header .current-page {
     font-size: 12pt;
     margin: 0;
     height: 100%;
-    white-space: normal;
     margin-bottom: 5px;
 }
 
@@ -293,7 +286,7 @@ header .current-page {
 }
 
 
-/*Медиа-запросы*/
+/* медиа-запросы */
 @media (max-width: 600px) {
     header {
         flex-wrap: wrap;
@@ -326,6 +319,7 @@ header .current-page {
     .content {
         grid-template-columns: 1fr;
         min-height: auto;
+        max-height: none;
     }
 
     .left,
@@ -343,7 +337,6 @@ header .current-page {
     .right-box,
     .right-box-bottom {
         flex-direction: column;
-        height: auto;
     }
 
     .left-box img,
@@ -367,6 +360,7 @@ header .current-page {
 
     .central .middle-bottom-line {
         grid-template-columns: 1fr;
+        max-height: none;
     }
 
 }
